@@ -1,20 +1,18 @@
 /*
 ** EPITECH PROJECT, 2018
-** libmy
+** my_strupcase
 ** File description:
-** up case all low cases characters
+** up letter
 */
 
-#include "my.h"
-
-char *my_strupcase(char *str)
+char    *my_strupcase(char *str)
 {
-    int offset = 'A' - 'a';
+    int i = 0;
 
-    for (int i = 0; str[i] != '\0'; i++) {
+    while (str[i] != '\0') {
         if (str[i] >= 'a' && str[i] <= 'z')
-            str[i] += offset;
-        i += 1;
+            str[i] -= 32;
+        i++;
     }
     return (str);
 }

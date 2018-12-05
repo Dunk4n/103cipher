@@ -1,19 +1,20 @@
 /*
 ** EPITECH PROJECT, 2018
-** libmy
+** my_is_prime
 ** File description:
-** returns 1 if the number is prime and 0 if not
+** say if the argument is prime
 */
 
-int my_is_prime(int nb)
+int     my_is_prime(int nb)
 {
-    if (nb < 0)
+    int i = 2;
+
+    if (nb < 2)
         return (0);
-    else if (nb <= 1)
-        return (0);
-    for (int i = 2; i < nb; i++) {
+    while (i <= nb / i) {
         if (nb % i == 0)
             return (0);
+        i++;
     }
     return (1);
 }

@@ -2,25 +2,17 @@
 ** EPITECH PROJECT, 2018
 ** my_str_isalpha
 ** File description:
-** chekcs if str is only alpha
+** say if an str is alpha and not number
 */
 
-#include "my.h"
-
-static int is_alpha(char c)
+int     my_str_isalpha(char const *str)
 {
-    if (c >= 'a' && c <= 'z')
-        return (1);
-    if (c >= 'A' && c <= 'Z')
-        return (1);
-    return (0);
-}
+    int i = 0;
 
-int my_str_isalpha(char const *str)
-{
-    for (int i = 0; str[i] != '\0'; i++) {
-        if (is_alpha(str[i]) == 0)
+    while (str[i] != '\0') {
+        if ((str[i] < 97 || str[i] > 'z') && (str[i] < 65 || str[i] > 90))
             return (0);
+        i++;
     }
     return (1);
 }

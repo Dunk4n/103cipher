@@ -1,19 +1,18 @@
 /*
 ** EPITECH PROJECT, 2018
-** libmy
+** my_strlowcase
 ** File description:
-** low case the string
+** low letter
 */
 
-#include "my.h"
-
-char *my_strlowcase(char *str)
+char    *my_strlowcase(char *str)
 {
-    int offset = 'a' - 'A';
+    int i = 0;
 
-    for (int i = 0; str[i] != '\0'; i++) {
+    while (str[i] != '\0') {
         if (str[i] >= 'A' && str[i] <= 'Z')
-            str[i] += offset;
+            str[i] += 32;
+        i++;
     }
     return (str);
 }

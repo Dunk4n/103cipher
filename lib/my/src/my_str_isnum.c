@@ -2,24 +2,17 @@
 ** EPITECH PROJECT, 2018
 ** my_str_isnum
 ** File description:
-** checks if str is only numbers
+** say if an str is number and not alpha
 */
 
-#include "my.h"
-
-static int is_num(char c)
+int     my_str_isnum(char const *str)
 {
-    if (c >= '0' && c <= '9')
-        return (1);
-    else
-        return (0);
-}
+    int i = 0;
 
-int my_str_isnum(char const *str)
-{
-    for (int i = 0; str[i] != '\0'; i++) {
-        if (is_num(str[i]) == 0)
+    while (str[i] != '\0') {
+        if (str[i] < '0' || str[i] > '9')
             return (0);
+        i++;
     }
     return (1);
 }

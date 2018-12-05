@@ -7,7 +7,7 @@
 
 #include "my.h"
 
-int my_puterr_nbr(int nb)
+void my_puterr_nbr(int nb)
 {
     if (nb < 0 && nb != -2147483648) {
         my_puterr('-');

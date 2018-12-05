@@ -1,40 +1,23 @@
 /*
 ** EPITECH PROJECT, 2018
-** libmy
+** my_strstr
 ** File description:
-** find a string in a string
+** find the first occurrence of the substring in a string
 */
 
-#include "my.h"
+int     my_strncmp(char const *s1, char const *s2, int n);
+int     my_strlen(char const *str);
 
-static int my_strlen_strstr(char const *to_find)
-{
-    int count = 0;
-
-    while (to_find[count] != '\0')
-        count += 1;
-    return (count);
-}
-
-char *my_strstr(char *str, char const *to_find)
+char    *my_strstr(char const *str, char const *to_find)
 {
     int i = 0;
-    int tf_length = my_strlen_strstr(to_find);
+    int len = my_strlen(to_find);
 
-    if (*str == '\0')
-        return (0);
-    while (str[i] != to_find[i] && str[i] != '\0')
-        str += 1;
-    if (str[i] != '\0') {
-        while (str[i] == to_find[i] && str[i] != '\0' && to_find[i] != '\0') {
-            i += 1;
+    while (str[i] != '\0') {
+        if (str[i] == to_find[0] && my_strncmp(&str[i], to_find, len) == 0) {
+            return (char*)(str + i);
         }
-        if (i == tf_length)
-            return (str);
-        else if (str[i] != '\0')
-            return (my_strstr(str + 1, to_find));
-        else
-            return (0);
-    } else
-        return (0);
+        i++;
+    }
+    return (0);
 }

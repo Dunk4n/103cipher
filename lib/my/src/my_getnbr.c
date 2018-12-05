@@ -1,30 +1,25 @@
 /*
 ** EPITECH PROJECT, 2018
-** libmy
+** my_getnbr
 ** File description:
-** returns a number found in a string
+** return the number in a string
 */
 
-int my_getnbr(char const *str)
+int     my_getnbr(char const *str)
 {
-    int is_neg;
-    int i;
-    int result;
+    int     i = 0;
+    long    nb = 0;
+    int     neg = 1;
 
-    is_neg = 1;
-    i = 0;
-    result = 0;
-    while (str[i] != '\0' && (str[i] == '+' || str[i] == '-')) {
+    while (str[i] != '\0' && (str[i] <= 32 || str[i] == 43 || str[i] == 45)) {
         if (str[i] == '-')
-            is_neg = is_neg * - 1;
+            neg *= -1;
         i++;
     }
-    while (str[i] >= '0' && str[i] <= '9') {
-        result = result * 10;
-        result = result + (str[i] - '0');
-        if ((result != -2147483648 || is_neg == 1) && result < 0)
+    while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9') {
+        nb = nb * 10 + (str[i++] - '0');
+        if ((nb > 2147483648 && neg == -1) || (nb > 2147483647 && neg == 1))
             return (0);
-        i++;
     }
-    return (result * is_neg);
+    return (nb * neg);
 }

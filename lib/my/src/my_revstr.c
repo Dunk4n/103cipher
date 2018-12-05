@@ -2,32 +2,22 @@
 ** EPITECH PROJECT, 2018
 ** my_revstr
 ** File description:
-** reverses stuff
+** reverses a string
 */
 
-#include "my.h"
+int      my_strlen(char const *str);
 
-static int my_strlen2(char const *str2)
+char            *my_revstr(char *str)
 {
-    int ret2 = 0;
+    int i = 0;
+    int len = my_strlen(str) - 1;
+    char swap = 0;
 
-    for (int i = 0; str2[i] != '\0'; i++) {
-        ret2++;
-    }
-    return (ret2);
-}
-
-char *my_revstr(char *str)
-{
-    int j = my_strlen2(str);
-    char rts[j];
-
-    for (int i = 0; str[i] != '\0'; i++) {
-        rts[j-1] = str[i];
-        j--;
-    }
-    for (int i = 0; str[i] != '\0'; i++) {
-        str[i] = rts[i];
+    while (i < len / 2) {
+        swap = str[i];
+        str[i] = str[len - i];
+        str[len - i] = swap;
+        i++;
     }
     return (str);
 }

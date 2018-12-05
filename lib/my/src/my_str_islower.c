@@ -1,19 +1,18 @@
 /*
 ** EPITECH PROJECT, 2018
-** my str is lower 
+** my_str_islower
 ** File description:
-** 1 if low case 0 if not
+** if the string is only lower alphabetical char
 */
 
-#include "my.h"
-
-int my_str_islower(char const *str)
+int     my_str_islower(char const *str)
 {
-    for (int i = 0; str[i] != '\0'; i++) {
-        if (str[i] >= 'a' && str[i] <= 'z')
-            i += 1;
-        else
+    int i = 0;
+
+    while (str[i] != '\0') {
+        if (str[i] < 'a' || str[i] > 'z')
             return (0);
+        i++;
     }
     return (1);
 }

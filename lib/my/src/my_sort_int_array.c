@@ -1,27 +1,33 @@
 /*
 ** EPITECH PROJECT, 2018
-** libmy
+** my_sort_int_array
 ** File description:
-** sort an integrer array in ascending order
+** sort an array
 */
 
-#include "my.h"
-
-static void change(int *table, int size, int position)
+void    swa(int i, int *array, int *bol)
 {
-    for (int i = position; i > 0; i--) {
-        if (table[position] < table[position -1]) {
-            my_swap(&table[position], &table[position - 1]);
-            position--;
-        }
-        else
-            return;
+    if (array[i] > array[i + 1]) {
+        array[i] += array[i + 1];
+        array[i + 1] = array[i] - array[i + 1];
+        array[i] -= array[i + 1];
+        *bol = 1;
     }
 }
 
-void my_sort_int_array(int *tab, int size)
+void    my_sort_int_array(int *array, int size)
 {
-    for (int i = 0; i < size; i++) {
-        change(tab, size, i);
+    int i = 0;
+    int bol = 1;
+
+    if (size <= 1)
+        return ;
+    while (bol == 1) {
+        bol = 0;
+        while (i < size - 1) {
+            swa(i, array, &bol);
+            i++;
+        }
+        i = 0;
     }
 }

@@ -1,18 +1,15 @@
 /*
 ** EPITECH PROJECT, 2018
-** libmy
+** my_strlen
 ** File description:
-** counts number of character in a string given as a parameter
+** return the number of char in a string
 */
 
-#include "my.h"
-
-int my_strlen(char const *str)
+int     my_strlen(char const *str)
 {
-    int ret = 0;
+    int i = 0;
 
-    for (int i = 0; str[i] != '\0'; i++) {
-        ret++;
-    }
-    return (ret);
+    while (str[i] != '\0')
+        i++;
+    return (i);
 }

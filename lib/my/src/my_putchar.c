@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2018
-** mylib
+** my_putchar
 ** File description:
-** prints a character to the console
+** put char
 */
 
-#include "my.h"
+#include <unistd.h>
 
-void my_putchar(char c)
+int     my_putchar(char c)
 {
     write(1, &c, 1);
+    return (1);
 }

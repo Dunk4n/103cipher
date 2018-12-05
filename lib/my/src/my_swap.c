@@ -1,16 +1,13 @@
 /*
 ** EPITECH PROJECT, 2018
-** libmy
+** my_swap
 ** File description:
-** Swaps two ints given as parameters
+** swap tow int
 */
 
-#include "my.h"
-
-void my_swap(int *a, int *b)
+void    my_swap(int *a, int *b)
 {
-    int swap = *b;
-
-    *b = *a;
-    *a = swap;
+    *a += *b;
+    *b = *a - *b;
+    *a = *a - *b;
 }

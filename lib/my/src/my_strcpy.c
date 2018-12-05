@@ -2,16 +2,16 @@
 ** EPITECH PROJECT, 2018
 ** my_strcpy
 ** File description:
-** copy a string into another
+** copie a string into another
 */
 
-#include "my.h"
-
-char *my_strcpy(char *dest, char const *src)
+char    *my_strcpy(char *dest, char const *src)
 {
-    int i;
-    for (i = 0; src[i] != '\0'; i++) {
+    int i = 0;
+
+    while (src[i] != '\0') {
         dest[i] = src[i];
+        i++;
     }
     dest[i] = '\0';
     return (dest);

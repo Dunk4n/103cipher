@@ -10,4 +10,6 @@
 
 #include "my.h"
 
+int     check_error(int ac, char **av);
+
 #endif

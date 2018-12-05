@@ -1,17 +1,17 @@
 /*
 ** EPITECH PROJECT, 2018
-** mylib
+** my_isneg
 ** File description:
-** Display either N if the integrer passed as a
-** parameter is negative or P if it is positive or null.
+** say if a number is negatif or positif
 */
 
-int my_isneg(int nb)
+void    my_putchar(char c);
+
+int my_isneg(int n)
 {
-    if (nb >= 0) {
-        return (0);
-    }
-    if (nb < 0) {
-        return (1);
-    }
+    if (n < 0)
+        my_putchar('N');
+    else
+        my_putchar('P');
+    return (0);
 }

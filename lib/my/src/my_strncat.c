@@ -1,20 +1,20 @@
 /*
 ** EPITECH PROJECT, 2018
-** libmy
+** my_strncat
 ** File description:
-** does stuff sometimes
+** concat tow string
 */
 
-#include "my.h"
+int     my_strlen(char *str);
 
-char *my_strncat(char *dest, char const *src, int n)
+char    *my_strncat(char *dest, char const *src, int nb)
 {
-    char *ptr = dest + my_strlen(dest);
-    int i;
+    int  len = my_strlen(dest);
+    int i = 0;
 
-    for (i = 0; i < n && src[i] != '\0'; i++) {
-        ptr[i] = src[i];
+    while (i < nb && src[i] != '\0') {
+        dest[len + 1] = src[i];
     }
-    ptr[i] = '\0';
+    dest[len + i] = '\0';
     return (dest);
 }

@@ -1,13 +1,18 @@
 /*
 ** EPITECH PROJECT, 2018
-** libmy
+** my_str_isupper
 ** File description:
-** does stuff
+** if the string is only upper alphabetical char
 */
 
-#include "my.h"
-
-int my_str_isupper(char const *str)
+int     my_str_isupper(char const *str)
 {
-    return (0);
+    int i = 0;
+
+    while (str[i] != '\0') {
+        if (str[i] < 'A' || str[i] > 'Z')
+            return (0);
+        i++;
+    }
+    return (1);
 }
