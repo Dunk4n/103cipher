@@ -11,5 +11,7 @@
 #include "my.h"
 
 int     check_error(int ac, char **av);
+int     cipher (char **av);
+int     deter(int **key, int col);
 
 #endif

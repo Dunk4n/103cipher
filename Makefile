@@ -5,9 +5,11 @@
 ## makefile pong
 ##
 
-SRC	:=	main.c
+SRC	:=	main.c		\
+		inverted.c	\
+		103cipher.c
 
-OBJ	:=	$(SRC:.c=.o)
+OBJ	:=	$(SRC:%.c=src/%.o)
 
 NAME	:=	103cipher
 
