@@ -6,22 +6,18 @@
 */
 
 #include <stdlib.h>
+#include "my.h"
 #include "lucifer.h"
 
-void    display_key_matrix(int **tab)
+void    display_key_matrix(int **tab, int nbcol)
 {
-    int nbcol = 0;
     int i = 0;
     int j = 0;
-    int nbchar = 0;
 
-    my_printf("Key matrix:\n");
-    while (tab[nbcol] != 0)
-        nbcol++;
     while (i < nbcol ) {
         j = 0;
         while (j < nbcol) {
-            nbchar = my_printf("%d", tab[i][j++]);
+            my_printf("%d", tab[i][j++]);
             my_printf(((j < nbcol) ? "\t" : "\0"));
         }
         my_printf("\n");
@@ -75,16 +71,42 @@ nbcol + ((my_strlen(av[1]) % nbcol == 0) ? -1 : 0)) ? " " : "\n");
     }
 }
 
-int cipher (char **av)
+int     *mess_to_int(char *mess)
+{
+    int *res;
+    int i = 0;
+    char **tab = my_str_to_word_array(mess, ' ');
+
+    while (tab[i++] != 0);
+    if ((res = malloc(sizeof(int) * (i + 1))) == NULL)
+        return (NULL);
+    res[0] = i;
+    i = -1;
+    while (tab[++i] != 0) {
+        res[i + 1] = my_getnbr(tab[i]);
+        free(tab[i]);
+    }
+    free(tab);
+    return (res);
+}
+
+int     cipher (char **av, int chx)
 {
     int **key = matrix_key(av[2]);
+    int *int_mess;
     int nbcol = 0;
 
     while (key[nbcol] != 0)
         nbcol++;
-    display_key_matrix(key);
-    my_printf("\nEncrypted message:\n");
-    deter(key, nbcol);
-    //matrix_mess(av, nbcol, key);
+    my_printf("Key matrix:\n");
+    if (chx == 0) {
+        display_key_matrix(key, nbcol);
+        my_printf("\nEncrypted message:\n");
+        matrix_mess(av, nbcol, key);
+        return (0);
+    }
+    if ((int_mess = mess_to_int(av[1])) == NULL)
+        return (84);
+    invert(key, nbcol, int_mess);
     return (0);
 }

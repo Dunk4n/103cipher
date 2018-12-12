@@ -5,13 +5,13 @@
 ** main of 103cipher
 */
 
+#include "my.h"
 #include "lucifer.h"
 
 int main(int ac, char **av)
 {
-    //if (ac == 4)
-        cipher(av);
-    //else
-    //    return (84);
+    if (ac != 4)
+        return (84);
+    cipher(av, my_getnbr(av[3]));
     return (0);
 }
