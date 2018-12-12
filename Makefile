@@ -8,7 +8,8 @@
 SRC	:=	main.c		\
 		inverted.c	\
 		parsing.c	\
-		103cipher.c
+		valid.c		\
+		cipher.c
 
 OBJ	:=	$(SRC:%.c=src/%.o)
 

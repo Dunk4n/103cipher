@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2018
-** 103cipher
+** cipher
 ** File description:
 ** encrypt messages
 */
@@ -27,7 +27,7 @@ void    display_key_matrix(int **tab, int nbcol)
 
 int     **matrix_key(char *str)
 {
-    int i = 2;
+    int i = 1;
     int j = 0;
     int k = -1;
     int n = 0;
@@ -98,8 +98,8 @@ int     cipher (char **av, int chx)
 
     while (key[nbcol] != 0)
         nbcol++;
-    my_printf("Key matrix:\n");
     if (chx == 0) {
+        my_printf("Key matrix:\n");
         display_key_matrix(key, nbcol);
         my_printf("\nEncrypted message:\n");
         matrix_mess(av, nbcol, key);
@@ -107,6 +107,7 @@ int     cipher (char **av, int chx)
     }
     if ((int_mess = mess_to_int(av[1])) == NULL)
         return (84);
-    invert(key, nbcol, int_mess);
+    if (invert(key, nbcol, int_mess) == NULL)
+        return (84);
     return (0);
 }

@@ -94,8 +94,10 @@ double  **invert(int **key, int nbcol, int *mess)
     double **trix = matrix(key, nbcol, 0);
     double **id = matrix(key, nbcol, 1);
 
-    invert_matrix(trix, id, nbcol);
+    if (invert_matrix(trix, id, nbcol) == 84)
+        return (NULL);
     free(trix);
+    my_printf("Key matrix:\n");
     display_reverse_matrix(id, nbcol);
     printf("\nDecrypted message:\n");
     display_mess_decrypted(id, nbcol, mess);

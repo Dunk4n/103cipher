@@ -63,14 +63,14 @@ void    sub_lig(double *li, double *lr, double x, int nbcol)
     }
 }
 
-void    invert_matrix(double **key, double **id, int nbcol)
+int     invert_matrix(double **key, double **id, int nbcol)
 {
     int k = 0;
     int r = 0;
     int j = -1;
     int i = -1;
 
-    while (++j < nbcol) {
+    while (++j < nbcol && is_revers(key, nbcol) != 84) {
         k = find_max(key, j, r, nbcol);
         if (key[k][j] != 0) {
             div_lig(id[k], key[k][j], nbcol);
@@ -85,4 +85,5 @@ void    invert_matrix(double **key, double **id, int nbcol)
             r++;
         }
     }
+    return ((is_revers(key, nbcol) != 84) ? 0 : 84);
 }
