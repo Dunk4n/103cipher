@@ -15,7 +15,7 @@ char    *my_strstr(char const *str, char const *to_find)
 
     while (str[i] != '\0') {
         if (str[i] == to_find[0] && my_strncmp(&str[i], to_find, len) == 0) {
-            return (char*)(str + i);
+            return ((char*)(str + i));
         }
         i++;
     }

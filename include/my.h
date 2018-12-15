@@ -9,7 +9,7 @@
 #define MY_H
 
 # include <unistd.h>
-#include <stdarg.h>
+# include <stdarg.h>
 
 # define cmp(x, y, z) my_strncmp(x, y, z)
 # define ABS(x) (((x) < 0) ? -(x) : (x))
@@ -17,7 +17,7 @@
 int     my_putchar(char c);
 int     my_isneg (int nb);
 int     my_put_nbr (int nb);
-void    my_swap(int *a ,int *b);
+void    my_swap(int *a, int *b);
 int     my_putstr(char const *str);
 int     my_strlen(char const *str);
 int     my_getnbr(char const *str);

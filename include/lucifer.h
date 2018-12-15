@@ -17,5 +17,6 @@ int     invert_matrix(double **key, double **id, int nbcol);
 void    display_key_matrix(int **tab, int nbcol);
 double  **invert(int **key, int nbcol, int *mess);
 int     is_revers(double **key, int nbcol);
+void    print_round(double nb);
 
 #endif

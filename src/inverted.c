@@ -57,8 +57,7 @@ void    display_reverse_matrix(double **key, int nbcol)
     while (i < nbcol ) {
         j = 0;
         while (j < nbcol) {
-            (key[i][j] == 0) ? printf("%.1f", key[i][j]) : 0;
-            (key[i][j] != 0) ? printf("%.3f", key[i][j]) : 0;
+            print_round(key[i][j]);
             j++;
             printf(((j < nbcol) ? "\t" : "\0"));
         }
