@@ -11,7 +11,7 @@
 
 int     find_max(double **key, int j, int r, int nbcol)
 {
-    double  res = 0;
+    double res = 0;
     int i = r;
     int tmp = i;
 

@@ -15,7 +15,7 @@ int     my_pow(int nb, int p)
         return (0);
     lnb = my_pow(nb, p - 1);
     lnb *= nb;
-    if (lnb  > 2147483647)
+    if (lnb > 2147483647)
         return (0);
     if (lnb < -2147483648)
         return (0);
