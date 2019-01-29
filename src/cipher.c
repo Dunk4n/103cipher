@@ -90,7 +90,7 @@ int     *mess_to_int(char *mess)
     return (res);
 }
 
-int     cipher (char **av, int chx)
+int     cipher(char **av, int chx)
 {
     int **key = matrix_key(av[2]);
     int *int_mess;
