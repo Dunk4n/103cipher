@@ -1,5 +1,5 @@
 # 103cipher
-Crypté et décrypté un mesage avec la matrice d'une clé
+Chiffré et déchiffré un mesage avec la matrice d'une clé
 
 # How does it work ?
 OPTION: 0 to cipher et 1 to decipher
